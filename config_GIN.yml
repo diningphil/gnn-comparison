@@ -1,0 +1,51 @@
+model:
+  - GIN
+device:
+  - cpu
+batch_size:
+  - 32
+  - 128
+learning_rate:
+  - 0.01
+classifier_epochs:
+  - 1000
+hidden_units:  # Note: GIN add a first layer that simply adds up all node features
+  - [64, 64, 64, 64]  # NO PARAMS: dim_features*64 + 10*64*4 + 5*(64^2) + 5*64*dim_target
+  - [32, 32, 32, 32]  # NO PARAMS: dim_features*32 + 10*32*4 + 5*(32^2) + 5*16*dim_target
+  - [64]  # NO PARAMS: dim_features*64 + 2*64*4 + 1*(64^2) + 64*dim_target
+  - [32, 32]  # NO PARAMS: dim_features*32 + 6*32*4 + 3*(32^2) + 3*32*dim_target
+optimizer:
+  - Adam
+scheduler:
+  -
+    class: StepLR
+    args:
+      step_size: 50
+      gamma: 0.5
+loss:
+  - MulticlassClassificationLoss
+train_eps:
+  - true
+  - false
+l2:
+  - 0.
+gradient_clipping:
+  - null
+dropout:
+  - 0.5
+  - 0.
+early_stopper:
+  -
+    class: Patience
+    args:
+      patience: 500
+      use_loss: False
+  -
+    class: Patience
+    args:
+      patience: 500
+      use_loss: True
+shuffle:
+  - True
+resume:
+  - False

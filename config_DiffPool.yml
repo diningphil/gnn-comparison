@@ -1,0 +1,48 @@
+model:
+  - DiffPool
+device:
+  - cpu
+batch_size:
+  - 8
+learning_rate:
+  - 0.001
+  - 0.0001
+  - 0.00001
+classifier_epochs:
+  - 3000
+optimizer:
+  - Adam
+scheduler:
+  - null
+loss:
+  - DiffPoolMulticlassClassificationLoss
+l2:
+  - 0.
+gradient_clipping:
+  - 2.0
+early_stopper:
+  -
+    class: Patience
+    args:
+      patience: 500
+      use_loss: False
+  -
+    class: Patience
+    args:
+      patience: 500
+      use_loss: True
+shuffle:
+  - True
+num_layers:
+  # - 1
+  - 2
+gnn_dim_hidden:
+  # - 32
+  - 64
+dim_embedding:
+  # - 64
+  - 128
+dim_embedding_MLP:
+  - 50
+
+
