@@ -1,4 +1,18 @@
-# Comparison of models for graph classification
+# A Fair Comparison of Graph Neural Networks for Graph Classification
+
+## Summary
+
+TBD
+
+## This repo
+
+The library includes data and scripts to reproduce the experiments reported in the paper.
+
+This research software is provided as is. If you happen to use or modify this code, please remember to cite the paper:
+
+[*Federico Errica and Marco Podda, Davide Bacciu, Alessio Micheli: A Fair Comparison of Graph Neural Networks for Graph Classification. Proceedings of the 8th International Conference on Learning Representations.*](https://openreview.net/forum?id=HygDF6NFPB)
+
+### Instructions
 
 To reproduce the experiments, first preprocess datasets as follows:
 
