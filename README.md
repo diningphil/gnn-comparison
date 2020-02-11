@@ -42,3 +42,8 @@ Then, you can launch experiments by typing:
 `python Launch_Experiments.py --config-file <config> --dataset-name <name> --result-folder <your-result-folder> --debug`
 
 Where `<config>` is your config file (e.g. config_BaselineChemical.yml), and `<name>` is the dataset name chosen as before.
+
+### Troubleshooting
+
+The installation of Pytorch Geometric depends on other libraries (torch_scatter, torch_cluster, torch_sparse) that have to be installed separately and before torch_geometric. Do not use pip install -r requirements.txt because it will not work. It is not possible at the moment to further simplify this initial setup.
+
