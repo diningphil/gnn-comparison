@@ -2,7 +2,7 @@ networkx
 requests
 pyyaml
 torch
-torch_geometric
 torch_scatter
 torch_sparse
 torch_cluster
+torch_geometric
