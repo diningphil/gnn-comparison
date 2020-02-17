@@ -17,7 +17,9 @@ This research software is provided as is. If you happen to use or modify this co
 To reproduce the experiments, first preprocess datasets as follows:
 
 `python PrepareDatasets.py DATA/CHEMICAL --dataset-name <name> --outer-k 10`
+
 `python PrepareDatasets.py DATA/SOCIAL_1 --dataset-name <name> --use-one --outer-k 10`
+
 `python PrepareDatasets.py DATA/SOCIAL_DEGREE --dataset-name <name> --use-degree --outer-k 10`
 
 Where `<name>` is the name of the dataset. 
