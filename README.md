@@ -2,10 +2,6 @@
 
 ## Summary
 
-TBD
-
-## This repo
-
 The library includes data and scripts to reproduce the experiments reported in the paper.
 
 This research software is provided as is. If you happen to use or modify this code, please remember to cite the paper:
