@@ -105,12 +105,13 @@ class NetWrapper:
 
         for epoch in range(1, max_epochs+1):
 
-            if scheduler is not None:
-                scheduler.step(epoch)
             start = time.time()
             train_acc, train_loss = self._train(train_loader, optimizer, clipping)
             end = time.time() - start
             time_per_epoch.append(end)
+
+            if scheduler is not None:
+                scheduler.step(epoch)
 
             if test_loader is not None:
                 test_acc, test_loss = self.classify_graphs(test_loader)
