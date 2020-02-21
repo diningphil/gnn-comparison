@@ -18,7 +18,7 @@ To reproduce the experiments, first preprocess datasets as follows:
 
 `python PrepareDatasets.py DATA/SOCIAL_DEGREE --dataset-name <name> --use-degree --outer-k 10`
 
-Where `<name>` is the name of the dataset. 
+Where `<name>` is the name of the dataset. Then, substitute the split (json) files with the ones provided in the `data_splits` folder.
 
 Please note that dataset folders should be organized as follows:
 
