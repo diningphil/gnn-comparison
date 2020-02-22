@@ -6,7 +6,7 @@ The library includes data and scripts to reproduce the experiments reported in t
 
 This research software is provided as is. If you happen to use or modify this code, please remember to cite the paper:
 
-[*Federico Errica and Marco Podda, Davide Bacciu, Alessio Micheli: A Fair Comparison of Graph Neural Networks for Graph Classification. Proceedings of the 8th International Conference on Learning Representations.*](https://openreview.net/pdf?id=HygDF6NFPB)
+[*Federico Errica and Marco Podda, Davide Bacciu, Alessio Micheli: A Fair Comparison of Graph Neural Networks for Graph Classification. Proceedings of the 8th International Conference on Learning Representations (ICLR2020).*](https://openreview.net/pdf?id=HygDF6NFPB)
 
 ### Instructions
 
