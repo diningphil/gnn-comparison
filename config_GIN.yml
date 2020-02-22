@@ -10,10 +10,10 @@ learning_rate:
 classifier_epochs:
   - 1000
 hidden_units:  # Note: GIN add a first layer that simply adds up all node features
-  - [64, 64, 64, 64]  # NO PARAMS: dim_features*64 + 10*64*4 + 5*(64^2) + 5*64*dim_target
-  - [32, 32, 32, 32]  # NO PARAMS: dim_features*32 + 10*32*4 + 5*(32^2) + 5*16*dim_target
-  - [64]  # NO PARAMS: dim_features*64 + 2*64*4 + 1*(64^2) + 64*dim_target
-  - [32, 32]  # NO PARAMS: dim_features*32 + 6*32*4 + 3*(32^2) + 3*32*dim_target
+  - [64, 64, 64, 64]
+  - [32, 32, 32, 32]
+  - [64]
+  - [32, 32]
 optimizer:
   - Adam
 scheduler:

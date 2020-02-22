@@ -25,20 +25,11 @@ class GIN(torch.nn.Module):
         elif config['aggregation'] == 'mean':
             self.pooling = global_mean_pool
 
-
-        # TOTAL NUMBER OF PARAMETERS #
-
-        # first: dim_features*out_emb_dim + 4*out_emb_dim + out_emb_dim*out_emb_dim + 4*out_emb_dim + out_emb_dim*target
-        # l-th: input_emb_dim*out_emb_dim + 4*out_emb_dim + out_emb_dim*out_emb_dim + 4*out_emb_dim + out_emb_dim*target
-
-        # -------------------------- #
-
         for layer, out_emb_dim in enumerate(self.embeddings_dim):
 
             if layer == 0:
                 self.first_h = Sequential(Linear(dim_features, out_emb_dim), BatchNorm1d(out_emb_dim), ReLU(),
                                     Linear(out_emb_dim, out_emb_dim), BatchNorm1d(out_emb_dim), ReLU())
-                #self.linears.append(Linear(dim_features, dim_target))
                 self.linears.append(Linear(out_emb_dim, dim_target))
             else:
                 input_emb_dim = self.embeddings_dim[layer-1]
@@ -48,20 +39,16 @@ class GIN(torch.nn.Module):
 
                 self.linears.append(Linear(out_emb_dim, dim_target))
 
-        #self.first_h = torch.nn.ModuleList(self.first_h)
         self.nns = torch.nn.ModuleList(self.nns)
         self.convs = torch.nn.ModuleList(self.convs)
         self.linears = torch.nn.ModuleList(self.linears)  # has got one more for initial input
 
     def forward(self, data):
-        # Implement Equation 4.2 of the paper i.e. concat all layers' graph representations and apply linear model
-        # note: this can be decomposed in one smaller linear model per layer
         x, edge_index, batch = data.x, data.edge_index, data.batch
 
         out = 0
 
         for layer in range(self.no_layers):
-            # print(f'Forward: layer {l}')
             if layer == 0:
                 x = self.first_h(x)
                 out += F.dropout(self.pooling(self.linears[layer](x), batch), p=self.dropout)
