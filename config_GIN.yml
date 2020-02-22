@@ -29,6 +29,9 @@ train_eps:
   - false
 l2:
   - 0.
+aggregation:
+  - mean
+  - sum
 gradient_clipping:
   - null
 dropout:

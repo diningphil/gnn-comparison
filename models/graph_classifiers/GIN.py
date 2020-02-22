@@ -20,6 +20,11 @@ class GIN(torch.nn.Module):
         self.linears = []
 
         train_eps = config['train_eps']
+        if config['aggregation'] == 'sum':
+            self.pooling = global_add_pool
+        elif config['aggregation'] == 'mean':
+            self.pooling = global_mean_pool
+
 
         # TOTAL NUMBER OF PARAMETERS #
 
@@ -55,19 +60,14 @@ class GIN(torch.nn.Module):
 
         out = 0
 
-        if self.config.dataset.name in ["NCI1", "DD", "PROTEINS", "ENZYMES"]:
-            pooling = global_add_pool 
-        else:
-            pooling = global_mean_pool
-
         for layer in range(self.no_layers):
             # print(f'Forward: layer {l}')
             if layer == 0:
                 x = self.first_h(x)
-                out += F.dropout(pooling(self.linears[layer](x), batch), p=self.dropout)
+                out += F.dropout(self.pooling(self.linears[layer](x), batch), p=self.dropout)
             else:
                 # Layer l ("convolution" layer)
                 x = self.convs[layer-1](x, edge_index)
-                out += F.dropout(self.linears[layer](pooling(x, batch)), p=self.dropout, training=self.training)
+                out += F.dropout(self.linears[layer](self.pooling(x, batch)), p=self.dropout, training=self.training)
 
         return out
