@@ -39,7 +39,12 @@ def parse_tu_data(name, raw_dir):
             line = line.rstrip("\n")
             edge = [int(e) for e in line.split(',')]
             edge_indicator.append(edge)
+
+            # edge[0] is a node id, and it is used to retrieve
+            # the corresponding graph id to which it belongs to
+            # (see README.txt)
             graph_id = indicator[edge[0]]
+
             graph_edges[graph_id].append(edge)
 
     if node_labels_path.exists():
