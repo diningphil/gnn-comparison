@@ -49,3 +49,5 @@ Where `<config>` is your config file (e.g. config_BaselineChemical.yml), and `<n
 
 The installation of Pytorch Geometric depends on other libraries (torch_scatter, torch_cluster, torch_sparse) that have to be installed separately and before torch_geometric. Do not use pip install -r requirements.txt because it will not work. Please refer to the [official instructions](https://github.com/rusty1s/pytorch_geometric) to install the required libraries.
 
+If you would like PyTorch not to spawn multiple threads for each process (**highly recommended**), append ``export OMP_NUM_THREADS=1`` to your .bashrc file.
+
