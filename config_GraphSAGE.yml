@@ -40,5 +40,6 @@ num_layers:
   - 3
   - 5
 aggregation:
+  - add
   - max
   - mean
