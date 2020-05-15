@@ -40,7 +40,7 @@ Please note that dataset folders should be organized as follows:
 
 Then, you can launch experiments by typing:
 
-`cp -r DATA/[CHEMICAL|SOCIAL_1|SOCIAL_DEGREE]/<name> DATA`
+`cp -r DATA/[CHEMICAL|SOCIAL_1|SOCIAL_DEGREE]/<name> DATA` \
 `python Launch_Experiments.py --config-file <config> --dataset-name <name> --result-folder <your-result-folder> --debug`
 
 Where `<config>` is your config file (e.g. config_BaselineChemical.yml), and `<name>` is the dataset name chosen as before.
