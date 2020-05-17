@@ -12,6 +12,28 @@ If you are interested in an introduction to Deep Graph Networks, check this out:
 
 [Davide Bacciu, Federico Errica, Alessio Micheli, Marco Podda: *A Gentle Introduction to Deep Learning for Graphs*](https://arxiv.org/abs/1912.12693). *Under Review*
 
+
+### Installation
+
+We provide a script to install the environment. You will need the conda package manager, which can be installed from [here](https://www.anaconda.com/products/individual).
+
+To install the required packages, follow there instructions (tested on a linux terminal):
+
+1) clone the repository
+
+    git clone https://github.com/diningphil/gnn-comparison
+
+2) `cd` into the cloned directory
+
+    cd gnn-comparison
+
+3) run the install script
+
+    source install.sh [<your_cuda_version>]
+
+Where `<your_cuda_version>` is an optional argument that can be either `cpu`, `cu92`, `cu100`, `cu101`. If you do not provide a cuda version, the script will default to `cpu`. The script will create a virtual environment named `gnn-comparison`, with all the required packages needed to run our code. **Important:** do NOT run this command using `bash` instead of `source`!
+
+
 ### Instructions
 
 To reproduce the experiments, first preprocess datasets as follows:
@@ -47,7 +69,7 @@ Where `<config>` is your config file (e.g. config_BaselineChemical.yml), and `<n
 
 ### Troubleshooting
 
-The installation of Pytorch Geometric depends on other libraries (torch_scatter, torch_cluster, torch_sparse) that have to be installed separately and before torch_geometric. Do not use pip install -r requirements.txt because it will not work. Please refer to the [official instructions](https://github.com/rusty1s/pytorch_geometric) to install the required libraries.
+<!-- The installation of Pytorch Geometric depends on other libraries (torch_scatter, torch_cluster, torch_sparse) that have to be installed separately and before torch_geometric. Do not use pip install -r requirements.txt because it will not work. Please refer to the [official instructions](https://github.com/rusty1s/pytorch_geometric) to install the required libraries. -->
 
 If you would like PyTorch not to spawn multiple threads for each process (**highly recommended**), append ``export OMP_NUM_THREADS=1`` to your .bashrc file.
 
