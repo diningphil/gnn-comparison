@@ -16,9 +16,6 @@ joblib==0.15.1
 kiwisolver==1.2.0
 llvmlite==0.32.1
 matplotlib==3.2.1
-mkl-fft==1.0.15
-mkl-random==1.1.0
-mkl-service==2.3.0
 networkx==2.4
 numba==0.49.1
 numpy==1.18.1
