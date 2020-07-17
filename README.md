@@ -67,6 +67,10 @@ Then, you can launch experiments by typing:
 
 Where `<config>` is your config file (e.g. config_BaselineChemical.yml), and `<name>` is the dataset name chosen as before.
 
+### Additional Notes
+
+You can only use CUDA with the `--debug` option, parallel GPUs support is not provided.
+
 ### Troubleshooting
 
 <!-- The installation of Pytorch Geometric depends on other libraries (torch_scatter, torch_cluster, torch_sparse) that have to be installed separately and before torch_geometric. Do not use pip install -r requirements.txt because it will not work. Please refer to the [official instructions](https://github.com/rusty1s/pytorch_geometric) to install the required libraries. -->
