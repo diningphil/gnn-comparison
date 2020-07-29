@@ -10,7 +10,7 @@ This research software is provided as is. If you happen to use or modify this co
 
 If you are interested in an introduction to Deep Graph Networks, check this out:
 
-[Davide Bacciu, Federico Errica, Alessio Micheli, Marco Podda: *A Gentle Introduction to Deep Learning for Graphs*](https://arxiv.org/abs/1912.12693). *Under Review*
+[Bacciu Davide, Errica Federico, Micheli Alessio, Podda Marco: *A Gentle Introduction to Deep Learning for Graphs*](https://arxiv.org/abs/1912.12693), Neural Networks, 2020. DOI: `10.1016/j.neunet.2020.06.006`.
 
 
 ### Installation
