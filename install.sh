@@ -13,7 +13,15 @@ conda activate gnn-comparison
 pip install -r requirements.txt
 
 # install pytorch
-conda install pytorch==${PYTORCH_VERSION} -c pytorch -y
+if [[ "$CUDA_VERSION" == "cpu" ]]; then 
+  conda install pytorch==${PYTORCH_VERSION} cpuonly -c pytorch -y
+elif [[ "$CUDA_VERSION" == 'cu92' ]]; then
+  conda install pytorch==${PYTORCH_VERSION} cudatoolkit=9.2 -c pytorch -y
+elif [[ "$CUDA_VERSION" == 'cu100' ]]; then
+  conda install pytorch==${PYTORCH_VERSION} cudatoolkit=10.0 -c pytorch -y
+elif [[ "$CUDA_VERSION" == 'cu101' ]]; then
+  conda install pytorch==${PYTORCH_VERSION} cudatoolkit=10.1 -c pytorch -y
+fi
 
 # install torch-geometric dependencies
 pip install torch-scatter==latest+${CUDA_VERSION} -f https://pytorch-geometric.com/whl/torch-${PYTORCH_VERSION}.html
