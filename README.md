@@ -8,7 +8,7 @@ This research software is provided as is. If you happen to use or modify this co
 
 [Federico Errica, Marco Podda, Davide Bacciu, Alessio Micheli: *A Fair Comparison of Graph Neural Networks for Graph Classification*](https://openreview.net/pdf?id=HygDF6NFPB). *Proceedings of the 8th International Conference on Learning Representations (ICLR 2020).*
 
-If you are interested in an introduction to Deep Graph Networks, check this out:
+If you are interested in an introduction to Deep Graph Networks **(and a new library!)**, check this out:
 
 [Bacciu Davide, Errica Federico, Micheli Alessio, Podda Marco: *A Gentle Introduction to Deep Learning for Graphs*](https://arxiv.org/abs/1912.12693), Neural Networks, 2020. DOI: `10.1016/j.neunet.2020.06.006`.
 
