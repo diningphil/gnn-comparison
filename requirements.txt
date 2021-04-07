@@ -32,7 +32,7 @@ pyparsing==2.4.7
 python-dateutil==2.8.1
 pytz==2020.1
 PyWavelets==1.1.1
-PyYAML==5.3.1
+PyYAML==5.4
 rdflib==5.0.0
 requests==2.23.0
 scikit-image==0.17.2
