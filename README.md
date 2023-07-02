@@ -16,6 +16,33 @@ The library includes data and scripts to reproduce the experiments reported in t
     }
 --
 
+## Updated Table with Results (CHEMICAL)
+|                             | D\&D           | NCI1            | PROTEINS        |
+|-----------------------------|-------------------------|--------------------------|--------------------------|
+| Baseline                    | $\mathbf{78.4}\pm 4.5 $ | $69.8 \pm 2.2 $          | $\mathbf{75.8} \pm 3.7 $ |
+| DGCNN                       | $76.6 \pm 4.3 $         | $76.4 \pm 1.7 $          | $72.9 \pm 3.5 $          |
+| DiffPool                    | $75.0 \pm 3.5 $         | $76.9 \pm 1.9 $          | $73.7 \pm 3.5 $          |
+| ECC                         | $72.6 \pm 4.1 $         | $76.2 \pm 1.4 $          | $72.3 \pm 3.4 $          |
+| GIN                         | $75.3 \pm 2.9 $         | $\mathbf{80.0} \pm 1.4 $ | $73.3 \pm 4.0 $          |
+| GraphSAGE                   | $72.9 \pm 2.0 $         | $76.0 \pm 1.8 $          | $73.0 \pm 4.5 $          |
+| [CGMM](https://www.jmlr.org/papers/volume21/19-470/19-470.pdf)              | $74.9 \pm 3.4 $         | $76.2 \pm 2.0$           | $74.0 \pm 3.9$           |
+| [ECGMM](https://ieeexplore.ieee.org/document/9533430/)                      | $73.9 \pm4.1$           | $78.5 \pm 1.7$           | $73.3 \pm 4.1$           |
+| [iCGMM<sub>*f*</sub>](https://proceedings.mlr.press/v162/castellana22a/castellana22a.pdf) | $75.1 \pm 3.8$          | $76.4 \pm1.4$            | $73.2 \pm 3.9$           |
+
+## Updated Table with Results (SOCIAL + degree)
+|                             | IMDB-B         | IMDB-M          | REDDIT-B       | REDDIT-5K       | COLLAB         |
+|-----------------------------|-------------------------|--------------------------|-------------------------|--------------------------|-------------------------|
+| Baseline                   | $70.8 \pm 5.0 $         | $\mathbf{49.1} \pm 3.5 $ | $82.2 \pm 3.0 $         | $52.2 \pm 1.5 $          | $70.2 \pm 1.5 $         |
+| DGCNN                      | $69.2 \pm 3.0 $         | $45.6 \pm 3.4 $          | $87.8 \pm 2.5 $         | $49.2 \pm 1.2 $          | $71.2 \pm 1.9 $         |
+| DiffPool                   | $68.4 \pm 3.3 $         | $45.6 \pm 3.4 $          | $89.1 \pm 1.6 $         | $53.8 \pm 1.4 $          | $68.9 \pm 2.0 $         |
+| ECC                        | $67.7 \pm 2.8 $         | $43.5 \pm 3.1 $          | -                       | -                        | -                       |
+| GIN                        | $71.2 \pm 3.9 $         | $48.5 \pm 3.3 $          | $89.9 \pm 1.9 $         | $\mathbf{56.1} \pm 1.7 $ | $75.6 \pm 2.3 $         |
+| GraphSAGE                  | $68.8 \pm 4.5 $         | $47.6 \pm 3.5 $          | $84.3 \pm 1.9 $         | $50.0 \pm 1.3 $          | $73.9 \pm 1.7 $         |
+| [CGMM](https://www.jmlr.org/papers/volume21/19-470/19-470.pdf)                       | $\mathbf{72.7} \pm 3.6$          | $47.5 \pm 3.9$           | $88.1 \pm 1.9$          | $52.4 \pm 2.2$           | $77.32 \pm 2.2$         |
+| [ECGMM](https://ieeexplore.ieee.org/document/9533430/)                      | $70.7 \pm 3.8$          | $48.3 \pm 4.1 $          | $89.5 \pm 1.3$          | $53.7 \pm 1.0 $          | $77.45 \pm 2.3$         |
+| [iCGMM<sub>*f*</sub>](https://proceedings.mlr.press/v162/castellana22a/castellana22a.pdf)                | $71.8 \pm 4.4$          | $49.0 \pm 3.8 $          | $\mathbf{91.6} \pm 2.1$ | $55.6 \pm 1.7$           | $\mathbf{78.9} \pm 1.7$ |
+
+
 #### If you are interested in an introduction to Deep Graph Networks **(and a new library!)**, check this out:
 
 [Bacciu Davide, Errica Federico, Micheli Alessio, Podda Marco: *A Gentle Introduction to Deep Learning for Graphs*](https://arxiv.org/abs/1912.12693), Neural Networks, 2020. DOI: `10.1016/j.neunet.2020.06.006`.
