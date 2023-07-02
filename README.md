@@ -28,7 +28,8 @@ The library includes data and scripts to reproduce the experiments reported in t
 | [CGMM](https://www.jmlr.org/papers/volume21/19-470/19-470.pdf)              | $74.9 \pm 3.4 $         | $76.2 \pm 2.0$           | $74.0 \pm 3.9$           |
 | [ECGMM](https://ieeexplore.ieee.org/document/9533430/)                      | $73.9 \pm4.1$           | $78.5 \pm 1.7$           | $73.3 \pm 4.1$           |
 | [iCGMM<sub>*f*</sub>](https://proceedings.mlr.press/v162/castellana22a/castellana22a.pdf) | $75.1 \pm 3.8$          | $76.4 \pm1.4$            | $73.2 \pm 3.9$           |
-
+| [GSPN](https://arxiv.org/pdf/2305.10544.pdf) | - | $76.6 \pm 1.9$ | - |
+ 
 ## Updated Table with Results (SOCIAL + degree)
 |                             | IMDB-B         | IMDB-M          | REDDIT-B       | REDDIT-5K       | COLLAB         |
 |-----------------------------|-------------------------|--------------------------|-------------------------|--------------------------|-------------------------|
@@ -41,6 +42,7 @@ The library includes data and scripts to reproduce the experiments reported in t
 | [CGMM](https://www.jmlr.org/papers/volume21/19-470/19-470.pdf)                       | $\mathbf{72.7} \pm 3.6$          | $47.5 \pm 3.9$           | $88.1 \pm 1.9$          | $52.4 \pm 2.2$           | $77.32 \pm 2.2$         |
 | [ECGMM](https://ieeexplore.ieee.org/document/9533430/)                      | $70.7 \pm 3.8$          | $48.3 \pm 4.1 $          | $89.5 \pm 1.3$          | $53.7 \pm 1.0 $          | $77.45 \pm 2.3$         |
 | [iCGMM<sub>*f*</sub>](https://proceedings.mlr.press/v162/castellana22a/castellana22a.pdf)                | $71.8 \pm 4.4$          | $49.0 \pm 3.8 $          | $\mathbf{91.6} \pm 2.1$ | $55.6 \pm 1.7$           | $\mathbf{78.9} \pm 1.7$ |
+| [GSPN](https://arxiv.org/pdf/2305.10544.pdf) | - | - | $90.5 \pm 1.1$ | $55.3 \pm 2.0$ |$78.1 \pm 2.5$ |
 
 
 #### If you are interested in an introduction to Deep Graph Networks **(and a new library!)**, check this out:
