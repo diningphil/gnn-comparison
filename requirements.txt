@@ -27,7 +27,7 @@ Pillow==9.0.0
 plyfile==0.7.2
 prompt-toolkit==3.0.4
 ptyprocess==0.6.0
-Pygments==2.7.4
+Pygments==2.15.0
 pyparsing==2.4.7
 python-dateutil==2.8.1
 pytz==2020.1
