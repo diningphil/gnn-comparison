@@ -34,7 +34,7 @@ pytz==2020.1
 PyWavelets==1.1.1
 PyYAML==5.4
 rdflib==5.0.0
-requests==2.23.0
+requests==2.31.0
 scikit-image==0.17.2
 scikit-learn==0.23.0
 scipy==1.4.1
