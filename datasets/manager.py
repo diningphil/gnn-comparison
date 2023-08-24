@@ -20,13 +20,10 @@ import json
 import requests
 import zipfile
 from pathlib import Path
-import networkx as nx
 from networkx import normalized_laplacian_matrix
 
 import numpy as np
 import torch
-from torch.nn import functional as F
-#import k_gnn
 
 from sklearn.model_selection import train_test_split, StratifiedKFold
 

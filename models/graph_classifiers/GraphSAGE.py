@@ -14,9 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-import torch
 from torch import nn
-from torch.nn import functional as F
 
 from torch_geometric.nn import SAGEConv, global_max_pool
 

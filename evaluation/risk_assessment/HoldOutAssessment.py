@@ -17,7 +17,6 @@
 import os
 import json
 
-from config.base import Config
 from evaluation.dataset_getter import DatasetGetter
 from log.Logger import Logger
 

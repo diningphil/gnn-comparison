@@ -19,7 +19,7 @@ import numpy as np
 import networkx as nx
 
 from torch_geometric.data import Data, Batch
-from torch_geometric.utils import dense_to_sparse, scatter_, to_dense_adj
+from torch_geometric.utils import dense_to_sparse, to_dense_adj
 
 
 def construct_mask_indices(sizes):

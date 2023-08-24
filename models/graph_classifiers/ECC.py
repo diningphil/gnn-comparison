@@ -17,10 +17,9 @@
 import torch
 from torch import nn
 from torch.nn import functional as F
-from torch_geometric.nn import MessagePassing, global_mean_pool
-from torch_geometric.utils import degree, dense_to_sparse
-from torch_geometric.nn import ECConv
-from torch_scatter import scatter_add
+from torch_geometric.nn import global_mean_pool
+from torch_geometric.nn.conv import ECConv
+from torch_geometric.utils import dense_to_sparse
 from utils.batch_utils import _make_block_diag
 
 

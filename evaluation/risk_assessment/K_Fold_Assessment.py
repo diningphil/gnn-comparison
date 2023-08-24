@@ -20,7 +20,6 @@ import json
 import numpy as np
 import concurrent.futures
 
-from config.base import Config
 from evaluation.dataset_getter import DatasetGetter
 from log import Logger
 
