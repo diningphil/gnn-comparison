@@ -64,11 +64,11 @@ To install the required packages, follow there instructions (tested on a linux t
 
     cd gnn-comparison
 
-3) run the install script
+3) Build the conda environment
 
-    source install.sh [<your_cuda_version>]
+    conda env create -f environment.yml
 
-Where `<your_cuda_version>` is an optional argument that can be either `cpu`, `cu92`, `cu100`, `cu101`. If you do not provide a cuda version, the script will default to `cpu`. The script will create a virtual environment named `gnn-comparison`, with all the required packages needed to run our code. **Important:** do NOT run this command using `bash` instead of `source`!
+Where this environment.yml supports only CUDA 10.7.0 with pytorch 2.0.1.
 
 
 ### Instructions
