@@ -24,17 +24,35 @@ CONDA_DIR_PATH=$(dirname $(dirname $CONDA_BIN_PATH))
 source $CONDA_DIR_PATH/etc/profile.d/conda.sh
 
 # default pytorch version is 2.0.1
-# available options are 1.4.2 and 2.0.1
+# available options are 1.4.0 and 2.0.1
 PYTORCH_VERSION=${1:-"2.0.1"}
 
 # set CUDA variable (defaults to cpu if no argument is provided to the script)
 # available options for pytorch 2.0.1 are cpu, and cu117
-# available options for pytorch 1.4.2 are cpu, cu92, cu100, and cu101
+# available options for pytorch 1.4.0 are cpu, cu92, cu100, and cu101
 CUDA_VERSION=${2:-"cpu"}
 
+# Default Python version
+PYTHON_VERSION=3.10
+
+# Default Torch Geometric version
+TORCH_GEOMETRIC_VERSION=2.3.1
+
+
+# Check PyTorch version and set corresponding Python and Torch Geometric versions
+PYTORCH_MAJOR_VERSION=$(echo $PYTORCH_VERSION | cut -d. -f1)
+PYTORCH_MINOR_VERSION=$(echo $PYTORCH_VERSION | cut -d. -f2)
+if [ $PYTORCH_MAJOR_VERSION -eq 1 ] && [ $PYTORCH_MINOR_VERSION -le 4 ]; then
+  PYTHON_VERSION=3.7
+  TORCH_GEOMETRIC_VERSION=1.4.2
+fi
+
+echo "Python version: ${PYTHON_VERSION}"
+echo "Installing PyTorch ${PYTORCH_VERSION} with CUDA ${CUDA_VERSION} support"
+echo "Torch Geometric version: ${TORCH_GEOMETRIC_VERSION}"
 
 # create virtual environment and activate it
-conda create --name gnn-comparison python=3.10 -y
+conda create --name gnn-comparison python=${PYTHON_VERSION} -y
 conda activate gnn-comparison
 
 # install requirements
@@ -65,4 +83,4 @@ case "$CUDA_VERSION" in
 esac
 
 # install torch-geometric
-pip install torch-geometric==2.3.1
+pip install torch-geometric==${TORCH_GEOMETRIC_VERSION}
