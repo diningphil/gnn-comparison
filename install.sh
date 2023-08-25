@@ -25,12 +25,12 @@ CONDA_DIR_PATH=$(dirname $(dirname $CONDA_BIN_PATH))
 source $CONDA_DIR_PATH/etc/profile.d/conda.sh
 
 # default pytorch version is 2.0.1
-# available options are 1.4.0 and 2.0.1
+# available options are 1.4.2 and 2.0.1
 PYTORCH_VERSION=${1:-"2.0.1"}
 
 # set CUDA variable (defaults to cpu if no argument is provided to the script)
 # available options for pytorch 2.0.1 are cpu, and cu117
-# available options for pytorch 1.4.0 are cpu, cu92, cu100, and cu101
+# available options for pytorch 1.4.2 are cpu, cu92, cu100, and cu101
 CUDA_VERSION=${2:-"cpu"}
 
 
@@ -66,4 +66,4 @@ case "$CUDA_VERSION" in
 esac
 
 # install torch-geometric
-pip install torch-geometric
+pip install torch-geometric==2.3.1
