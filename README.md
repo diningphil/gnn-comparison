@@ -69,7 +69,7 @@ To install the required packages, follow there instructions (tested on a linux t
     source install.sh [<your_cuda_version>] [<your_pytorch_version>]
 
 Where `<your_cuda_version>` is an optional argument that can be either `cpu`, `cu92`, `cu100`, `cu101` , or `cu117`, and `<your_pytorch_version>` is an optional argument that can be either  `1.14.0` or `2.0.1`. If you do not provide any of them the script will default to `cpu` and `2.0.1`. The script will create a virtual environment named `gnn-comparison`, with all the required packages needed to run our code. **Important:** do NOT run this command using `bash` instead of `source`!
-To use cuda it is recommended to install the `cu117` version of pytorch, which is the one we used for our experiments.
+We recommend using the newest versions of Pytorch 2.0.1 and CUDA 11.7 (cu117), which will install Pytorch Geometric 2.3.1. However, the experiments of the paper have been run using Pytorch 1.4.0 and Pytorch Geometric 1.4.2.
 
 
 ### Instructions
