@@ -57,7 +57,7 @@ class GraphDatasetManager:
 
         self.seed = seed
 
-        self.raw_dir = self.root_dir / "raw"
+        self.raw_dir = self.root_dir / "raw" / self.name
         if not self.raw_dir.exists():
             os.makedirs(self.raw_dir)
             self._download()
@@ -226,7 +226,7 @@ class GraphDatasetManager:
 
 
 class TUDatasetManager(GraphDatasetManager):
-    URL = "https://ls11-www.cs.tu-dortmund.de/people/morris/graphkerneldatasets/{name}.zip"
+    URL = "https://www.chrsmrrs.com/graphkerneldatasets/{name}.zip"
     classification = True
 
     def _download(self):
