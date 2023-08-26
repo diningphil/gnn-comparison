@@ -42,7 +42,7 @@ TORCH_GEOMETRIC_VERSION=2.3.1
 # Check PyTorch version and set corresponding Python and Torch Geometric versions
 PYTORCH_MAJOR_VERSION=$(echo $PYTORCH_VERSION | cut -d. -f1)
 PYTORCH_MINOR_VERSION=$(echo $PYTORCH_VERSION | cut -d. -f2)
-if [ $PYTORCH_MAJOR_VERSION -le 2 ] && [ $PYTORCH_MINOR_VERSION -eq 0 ]; then
+if [ $PYTORCH_MAJOR_VERSION -le 1 ] && [ $PYTORCH_MINOR_VERSION -le 9 ]; then
   PYTHON_VERSION=3.7
   TORCH_GEOMETRIC_VERSION=1.4.2
 fi
