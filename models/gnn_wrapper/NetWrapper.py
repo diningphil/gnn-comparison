@@ -16,8 +16,8 @@
 #
 import time
 from datetime import timedelta
+
 import torch
-from torch import optim
 
 
 def format_time(avg_time):

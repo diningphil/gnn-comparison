@@ -14,10 +14,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-from pathlib import Path
 import json
-import yaml
 import pickle
+from pathlib import Path
+
+import yaml
 
 
 def read_config_file(dict_or_filelike):

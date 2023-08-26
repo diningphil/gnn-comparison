@@ -1,5 +1,4 @@
 #
-# Copyright (C) 2020 University of Pisa
 # Copyright (C) 2023 University of Pisa, University of Vienna
 #
 # This program is free software: you can redistribute it and/or modify
@@ -16,19 +15,19 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 # Default Python version
-PYTHON_VERSION=python3.10
+PYTHON_VERSION=python3.8
 
 # default pytorch version is 2.0.1
 # available options are 1.4.0 and 2.0.1
-PYTORCH_VERSION=${1:-"2.0.1"}
+PYTORCH_VERSION=1.4.0
 
 # Default Torch Geometric version
-TORCH_GEOMETRIC_VERSION=2.3.1
+TORCH_GEOMETRIC_VERSION=1.4.2
 
 # set CUDA variable (defaults to cpu if no argument is provided to the script)
 # available options for pytorch 2.0.1 are cpu, and cu117
 # available options for pytorch 1.4.0 are cpu, cu92, cu100, and cu101
-CUDA_VERSION=${2:-"cpu"}
+CUDA_VERSION=${1:-"cpu"}
 
 echo "Using Python version: ${PYTHON_VERSION}"
 echo "Installing PyTorch ${PYTORCH_VERSION} with CUDA ${CUDA_VERSION} support"
@@ -41,18 +40,24 @@ source ~/.venv/gnn-comparison/bin/activate
 
 pip install build wheel
 
+# install requirements
+pip install -r requirements_original.txt
+
 # install pytorch
 if [[ "$CUDA_VERSION" == "cpu" ]]; then
   pip install torch==${PYTORCH_VERSION} --extra-index-url https://download.pytorch.org/whl/cpu
-elif [[ "$CUDA_VERSION" == 'cu116' ]]; then
-  pip install torch==${PYTORCH_VERSION} --extra-index-url https://download.pytorch.org/whl/cu116
-elif [[ "$CUDA_VERSION" == 'cu117' ]]; then
-  pip install torch==${PYTORCH_VERSION} --extra-index-url https://download.pytorch.org/whl/cu117
-elif [[ "$CUDA_VERSION" == 'cu118' ]]; then
-  pip install torch==${PYTORCH_VERSION} --extra-index-url https://download.pytorch.org/whl/cu118
+elif [[ "$CUDA_VERSION" == 'cu92' ]]; then
+  pip install torch==${PYTORCH_VERSION} --extra-index-url https://download.pytorch.org/whl/cu92
+elif [[ "$CUDA_VERSION" == 'cu100' ]]; then
+  pip install torch==${PYTORCH_VERSION} --extra-index-url https://download.pytorch.org/whl/cu100
+elif [[ "$CUDA_VERSION" == 'cu101' ]]; then
+  pip install torch==${PYTORCH_VERSION} --extra-index-url https://download.pytorch.org/whl/cu101
 fi
 
-# install torch-geometric
-pip install torch-geometric==${TORCH_GEOMETRIC_VERSION}
 
-pip install PyYAML==6.0.1
+# install torch-geometric dependencies
+pip install torch-scatter==latest+${CUDA_VERSION} -f https://s3.eu-central-1.amazonaws.com/pytorch-geometric.com/whl/torch-${PYTORCH_VERSION}.html
+pip install torch-sparse==latest+${CUDA_VERSION} -f https://s3.eu-central-1.amazonaws.com/pytorch-geometric.com/whl/torch-${PYTORCH_VERSION}.html
+pip install torch-cluster==latest+${CUDA_VERSION} -f https://s3.eu-central-1.amazonaws.com/pytorch-geometric.com/whl/torch-${PYTORCH_VERSION}.html
+pip install torch-spline-conv==latest+${CUDA_VERSION} -f https://s3.eu-central-1.amazonaws.com/pytorch-geometric.com/whl/torch-${PYTORCH_VERSION}.html
+pip install torch-geometric==1.4.2 -f https://s3.eu-central-1.amazonaws.com/pytorch-geometric.com/whl/torch-${PYTORCH_VERSION}.html

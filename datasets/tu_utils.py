@@ -15,11 +15,11 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 from collections import defaultdict
-import numpy as np
-import networkx as nx
 
-from .graph import Graph
+import numpy as np
+
 from utils.utils import one_hot
+from .graph import Graph
 
 
 def parse_tu_data(name, raw_dir):

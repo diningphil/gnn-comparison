@@ -15,13 +15,9 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 import torch
-from torch import nn
-from torch.nn import functional as F
-
-from torch_geometric.nn import SAGEConv, global_max_pool
-
-import torch
 import torch.nn.functional as F
+from torch import nn
+from torch_geometric.nn import SAGEConv, global_max_pool
 
 
 class GraphSAGE(nn.Module):

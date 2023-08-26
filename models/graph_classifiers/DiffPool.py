@@ -21,7 +21,6 @@ from torch import nn
 from torch.nn import functional as F
 from torch_geometric.nn import DenseSAGEConv, dense_diff_pool
 from torch_geometric.utils import to_dense_batch, to_dense_adj
-from torch_geometric.transforms import ToDense
 
 NUM_SAGE_LAYERS = 3
 

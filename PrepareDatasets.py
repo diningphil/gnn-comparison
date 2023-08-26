@@ -18,7 +18,6 @@ import argparse
 
 from datasets import *
 
-
 DATASETS = {
     'REDDIT-BINARY': RedditBinary,
     'REDDIT-MULTI-5K': Reddit5K,

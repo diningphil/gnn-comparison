@@ -15,10 +15,10 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 import os
+
 import torch
 
 from config.base import Grid, Config
-
 from evaluation.model_selection.HoldOutSelector import HoldOutSelector
 from evaluation.risk_assessment.K_Fold_Assessment import KFoldAssessment
 from experiments.EndToEndExperiment import EndToEndExperiment

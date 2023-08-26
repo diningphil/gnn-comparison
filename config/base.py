@@ -14,23 +14,25 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
+from copy import deepcopy
+
 from torch.optim import Adam, SGD
 from torch.optim.lr_scheduler import StepLR, ReduceLROnPlateau
 
 from datasets import *
 from models.graph_classifiers.DGCNN import DGCNN
 from models.graph_classifiers.DeepMultisets import DeepMultisets
-from models.graph_classifiers.MolecularFingerprint import MolecularFingerprint
-from models.schedulers.ECCScheduler import ECCLR
-from models.utils.EarlyStopper import Patience, GLStopper
-from models.graph_classifiers.GIN import GIN
 from models.graph_classifiers.DiffPool import DiffPool
 from models.graph_classifiers.ECC import ECC
+from models.graph_classifiers.GIN import GIN
 from models.graph_classifiers.GraphSAGE import GraphSAGE
-from models.modules import (BinaryClassificationLoss, MulticlassClassificationLoss,
-                            NN4GMulticlassClassificationLoss, DiffPoolMulticlassClassificationLoss)
-
-from copy import deepcopy
+from models.graph_classifiers.MolecularFingerprint import MolecularFingerprint
+from models.modules import (BinaryClassificationLoss,
+                            MulticlassClassificationLoss,
+                            NN4GMulticlassClassificationLoss,
+                            DiffPoolMulticlassClassificationLoss)
+from models.schedulers.ECCScheduler import ECCLR
+from models.utils.EarlyStopper import Patience, GLStopper
 from .utils import read_config_file
 
 

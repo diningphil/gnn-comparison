@@ -50,9 +50,9 @@ The library includes data and scripts to reproduce the experiments reported in t
 [Bacciu Davide, Errica Federico, Micheli Alessio, Podda Marco: *A Gentle Introduction to Deep Learning for Graphs*](https://arxiv.org/abs/1912.12693), Neural Networks, 2020. DOI: `10.1016/j.neunet.2020.06.006`.
 
 
-### Installation
+## Installation
 
-We provide a script to install the environment. You will need the conda package manager, which can be installed from [here](https://www.anaconda.com/products/individual).
+We provide a script to install a virtual environment called `gnn-comparison`. You will a Python version installed on your system.
 
 To install the required packages, follow there instructions (tested on a linux terminal):
 
@@ -64,12 +64,33 @@ To install the required packages, follow there instructions (tested on a linux t
 
     cd gnn-comparison
 
-3) run the install script
+3) change the `PYTHON_VERSION` variable in `install.sh` to your system's Python version.
 
-    source install.sh [<your_cuda_version>]
 
-Where `<your_cuda_version>` is an optional argument that can be either `cpu`, `cu92`, `cu100`, `cu101`. If you do not provide a cuda version, the script will default to `cpu`. The script will create a virtual environment named `gnn-comparison`, with all the required packages needed to run our code. **Important:** do NOT run this command using `bash` instead of `source`!
+### If you want to recreate the original environment used for the paper:
+4) run the installation script
+  
+       source install_original.sh [<your_cuda_version>]
 
+Where <your_cuda_version> is an optional argument that can be either `cpu`, `cu92`, `cu100` or `cu101`.
+
+Pytorch Geometric 1.4.0 will also be installed.
+
+
+### Otherwise, for newer versions
+
+4) run the installation script
+
+       source install.sh [<your_cuda_version>] [<your_pytorch_version>]
+
+Where <your_pytorch_version> should be `>= 2.0.1`, and <your_cuda_version> is an optional argument that can be either `cpu`, `cu116`, `cu117` or `cu118`. If you do not provide any of them the script will default to Pytorch `2.0.1` and `cpu`. 
+
+Pytorch Geometric 2.3.1 will also be installed.
+
+
+Notes:
+- It is up to you to ensure the Python version is consistent with the Pytorch, Torch Geometric, and CUDA versions you are going to install
+- Please open an issue if something is not working as expected.
 
 ### Instructions
 

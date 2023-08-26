@@ -14,10 +14,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-import os
 import json
+import os
 
-from config.base import Config
 from evaluation.dataset_getter import DatasetGetter
 from log.Logger import Logger
 

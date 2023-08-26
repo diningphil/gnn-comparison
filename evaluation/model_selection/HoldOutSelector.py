@@ -14,9 +14,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-import os
-import json
 import concurrent.futures
+import json
+import os
 
 from log.Logger import Logger
 
