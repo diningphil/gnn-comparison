@@ -228,7 +228,8 @@ class GraphDatasetManager:
 
 
 class TUDatasetManager(GraphDatasetManager):
-    URL = "https://ls11-www.cs.tu-dortmund.de/people/morris/graphkerneldatasets/{name}.zip"
+    # URL = "https://ls11-www.cs.tu-dortmund.de/people/morris/graphkerneldatasets/{name}.zip"
+    URL = "https://www.chrsmrrs.com/graphkerneldatasets/{name}.zip"
     classification = True
 
     def _download(self):
