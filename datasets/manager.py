@@ -15,16 +15,15 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 import io
-import os
 import json
-import requests
+import os
 import zipfile
 from pathlib import Path
-from networkx import normalized_laplacian_matrix
 
 import numpy as np
+import requests
 import torch
-
+from networkx import normalized_laplacian_matrix
 from sklearn.model_selection import train_test_split, StratifiedKFold
 
 from utils.utils import NumpyEncoder
@@ -33,6 +32,9 @@ from .dataloader import DataLoader
 from .dataset import GraphDataset, GraphDatasetSubset
 from .sampler import RandomSampler
 from .tu_utils import parse_tu_data, create_graph_from_tu_data
+
+
+# import k_gnn
 
 
 class GraphDatasetManager:
@@ -57,7 +59,7 @@ class GraphDatasetManager:
 
         self.seed = seed
 
-        self.raw_dir = self.root_dir / "raw" / self.name
+        self.raw_dir = self.root_dir / "raw"
         if not self.raw_dir.exists():
             os.makedirs(self.raw_dir)
             self._download()
@@ -226,6 +228,7 @@ class GraphDatasetManager:
 
 
 class TUDatasetManager(GraphDatasetManager):
+    # URL = "https://ls11-www.cs.tu-dortmund.de/people/morris/graphkerneldatasets/{name}.zip"
     URL = "https://www.chrsmrrs.com/graphkerneldatasets/{name}.zip"
     classification = True
 

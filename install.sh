@@ -1,4 +1,5 @@
 #
+# Copyright (C) 2020 University of Pisa
 # Copyright (C) 2023 University of Pisa, University of Vienna
 #
 # This program is free software: you can redistribute it and/or modify
@@ -14,73 +15,44 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-# Find the path to the Conda binary
-CONDA_BIN_PATH=$(which conda)
-
-# Extract the path to the Conda installation
-CONDA_DIR_PATH=$(dirname $(dirname $CONDA_BIN_PATH))
-
-# Source the Conda initialization script
-source $CONDA_DIR_PATH/etc/profile.d/conda.sh
+# Default Python version
+PYTHON_VERSION=python3.10
 
 # default pytorch version is 2.0.1
 # available options are 1.4.0 and 2.0.1
 PYTORCH_VERSION=${1:-"2.0.1"}
+
+# Default Torch Geometric version
+TORCH_GEOMETRIC_VERSION=2.3.1
 
 # set CUDA variable (defaults to cpu if no argument is provided to the script)
 # available options for pytorch 2.0.1 are cpu, and cu117
 # available options for pytorch 1.4.0 are cpu, cu92, cu100, and cu101
 CUDA_VERSION=${2:-"cpu"}
 
-# Default Python version
-PYTHON_VERSION=3.10
-
-# Default Torch Geometric version
-TORCH_GEOMETRIC_VERSION=2.3.1
-
-
-# Check PyTorch version and set corresponding Python and Torch Geometric versions
-PYTORCH_MAJOR_VERSION=$(echo $PYTORCH_VERSION | cut -d. -f1)
-PYTORCH_MINOR_VERSION=$(echo $PYTORCH_VERSION | cut -d. -f2)
-if [ $PYTORCH_MAJOR_VERSION -le 1 ] && [ $PYTORCH_MINOR_VERSION -le 9 ]; then
-  PYTHON_VERSION=3.7
-  TORCH_GEOMETRIC_VERSION=1.4.2
-fi
-
-echo "Python version: ${PYTHON_VERSION}"
+echo "Using Python version: ${PYTHON_VERSION}"
 echo "Installing PyTorch ${PYTORCH_VERSION} with CUDA ${CUDA_VERSION} support"
 echo "Torch Geometric version: ${TORCH_GEOMETRIC_VERSION}"
 
 # create virtual environment and activate it
-conda create --name gnn-comparison python=${PYTHON_VERSION} -y
-conda activate gnn-comparison
+$PYTHON_VERSION -m pip install --user virtualenv
+$PYTHON_VERSION -m venv ~/.venv/gnn-comparison
+source ~/.venv/gnn-comparison/bin/activate
 
-# install requirements
-pip install -r requirements.txt
+pip install build wheel
 
 # install pytorch
-case "$CUDA_VERSION" in
-  "cpu")
-    conda install pytorch==${PYTORCH_VERSION} cpuonly -c pytorch -y
-    ;;
-  "cu92")
-    conda install pytorch==${PYTORCH_VERSION} cudatoolkit=9.2 -c pytorch -y
-    ;;
-  "cu100")
-    conda install pytorch==${PYTORCH_VERSION} cudatoolkit=10.0 -c pytorch -y
-    ;;
-  "cu101")
-    conda install pytorch==${PYTORCH_VERSION} cudatoolkit=10.1 -c pytorch -y
-    ;;
-  "cu117")
-    conda install -c "nvidia/label/cuda-${CUDA_VERSION}" cuda-toolkit
-    conda install pytorch==${PYTORCH_VERSION} cudatoolkit=11.7.0 -c pytorch -y
-    ;;
-  *)
-    echo "Error: Unsupported CUDA version: ${CUDA_VERSION}. Exiting."
-    exit 1
-    ;;
-esac
+if [[ "$CUDA_VERSION" == "cpu" ]]; then
+  pip install torch==${PYTORCH_VERSION} --extra-index-url https://download.pytorch.org/whl/cpu
+elif [[ "$CUDA_VERSION" == 'cu116' ]]; then
+  pip install torch==${PYTORCH_VERSION} --extra-index-url https://download.pytorch.org/whl/cu116
+elif [[ "$CUDA_VERSION" == 'cu117' ]]; then
+  pip install torch==${PYTORCH_VERSION} --extra-index-url https://download.pytorch.org/whl/cu117
+elif [[ "$CUDA_VERSION" == 'cu118' ]]; then
+  pip install torch==${PYTORCH_VERSION} --extra-index-url https://download.pytorch.org/whl/cu118
+fi
 
 # install torch-geometric
 pip install torch-geometric==${TORCH_GEOMETRIC_VERSION}
+
+pip install PyYAML==6.0.1

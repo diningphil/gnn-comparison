@@ -20,6 +20,7 @@ from torch.nn import functional as F
 from torch_geometric.nn import global_mean_pool
 from torch_geometric.nn.conv import ECConv
 from torch_geometric.utils import dense_to_sparse
+
 from utils.batch_utils import _make_block_diag
 
 
@@ -108,9 +109,9 @@ class ECC(nn.Module):
 
         laplacian_layer_list = [laplacians[i][layer_no] for i in range(len(laplacians))]
         laplacian_block_diagonal = self.make_block_diag(laplacian_layer_list)
-        
+
         if self.config.dataset.name == 'DD':
-            laplacian_block_diagonal[laplacian_block_diagonal<1e-4] = 0
+            laplacian_block_diagonal[laplacian_block_diagonal < 1e-4] = 0
 
         # First layer
         lap_edge_idx, lap_edge_weights = dense_to_sparse(laplacian_block_diagonal)
@@ -125,7 +126,7 @@ class ECC(nn.Module):
             # TODO should lap_edge_index[0] be equal to edge_idx?
             lap_edge_idx, lap_edge_weights, v_plus_batch = self.get_ecc_conv_parameters(data, layer_no=i)
             edge_index = lap_edge_idx if i != 0 else edge_index
-            edge_weight = lap_edge_weights if i != 0 else x.new_ones((edge_index.size(1), ))
+            edge_weight = lap_edge_weights if i != 0 else x.new_ones((edge_index.size(1),))
 
             edge_index = edge_index.to(self.config.device)
             edge_weight = edge_weight.to(self.config.device)
