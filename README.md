@@ -92,7 +92,7 @@ Notes:
 - It is up to you to ensure the Python version is consistent with the Pytorch, Torch Geometric, and CUDA versions you are going to install
 - Please open an issue if something is not working as expected.
 
-### Instructions
+## Running the experiments
 
 To reproduce the experiments, first preprocess datasets as follows:
 
