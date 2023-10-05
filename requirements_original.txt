@@ -5,7 +5,7 @@ decorator==4.4.2
 googledrivedownloader==0.4
 h5py==2.10.0
 idna==2.9
-imagecodecs==2020.2.18
+imagecodecs==2023.9.18
 imageio==2.8.0
 ipython==7.16.3
 ipython-genutils==0.2.0
