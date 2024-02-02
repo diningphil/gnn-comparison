@@ -36,7 +36,7 @@ rdflib==5.0.0
 requests==2.23.0
 scikit-image==0.17.2
 scikit-learn==0.23.0
-scipy==1.4.1
+scipy==1.11.1
 six==1.14.0
 threadpoolctl==2.0.0
 tifffile==2020.5.11
