@@ -35,9 +35,8 @@ class GraphSAGE(nn.Module):
         for i in range(num_layers):
             dim_input = dim_features if i == 0 else dim_embedding
 
-            conv = SAGEConv(dim_input, dim_embedding)
             # Overwrite aggregation method (default is set to mean
-            conv.aggr = self.aggregation
+            conv = SAGEConv(dim_input, dim_embedding, aggr=self.aggregation)
 
             self.layers.append(conv)
 
